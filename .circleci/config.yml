@@ -80,6 +80,8 @@ jobs:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
+      - fullname:
+          to: "Funke Akinnawo"
       - print_pipeline_id
       - checkout
       - run: echo " My name is $My_Global_Name "
