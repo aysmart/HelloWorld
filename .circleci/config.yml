@@ -8,6 +8,12 @@ commands:
         default: "Ayorinde G. Smart"
     steps:
       - run: echo << parameters.to >>
+      
+  print_pipeline_id:
+    steps:
+      - run: echo ${CIRCLE_WORKFLOW_ID}
+
+
 jobs:
   one:
     docker:
@@ -53,8 +59,7 @@ jobs:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
-      - fullname:
-          to: "Funke Akinnawo"
+      - print_pipeline_id
       - checkout
       - run: echo " My name is $My_Global_Name "
       - attach_workspace:
