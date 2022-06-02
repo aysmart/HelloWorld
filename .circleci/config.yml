@@ -1,14 +1,14 @@
 version: 2
+commands:
+  fullname:
+    description: "A very simple command that reveals my full name"
+    parameters:
+      to:
+        type: string
+        default: "Ayorinde G. Smart"
+    steps:
+      - run: echo << parameters.to >>
 jobs:
-  commands:
-    fullname:
-      description: "A very simple command that reveals my full name"
-      parameters:
-        to:
-          type: string
-          default: "Ayorinde G. Smart"
-      steps:
-        - run: echo << parameters.to >>
   one:
     docker:
       - image: cimg/ruby:3.0.2
