@@ -53,13 +53,14 @@ jobs:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
+      - fullname:
+          to: "Funke Akinnawo"
       - checkout
       - run: echo " My name is $My_Global_Name "
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
           at: my_workspace
-      - fullname:
-          to: "Funke Akinnawo"
+      
 workflows:
   version: 2
   one_two_and_three:
