@@ -1,5 +1,14 @@
 version: 2
 jobs:
+  commands:
+    fullname:
+      description: "A very simple command that reveals my full name"
+      parameters:
+        to:
+          type: string
+          default: "Ayorinde G. Smart"
+      steps:
+        - run: echo << parameters.to >>
   one:
     docker:
       - image: cimg/ruby:3.0.2
@@ -49,6 +58,8 @@ jobs:
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
           at: my_workspace
+      - fullname:
+          to: "Funke Akinnawo"
 workflows:
   version: 2
   one_two_and_three:
